@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212030240398",
+    "project_id": "my-test-app-bcjn24",
+    "storage_bucket": "my-test-app-bcjn24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212030240398:android:d941682217fb9dfde93bdf",
+        "android_client_info": {
+          "package_name": "com.example.test_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVLCNxY2DE8kwVxYTqT4S_oXyapnYdV8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
