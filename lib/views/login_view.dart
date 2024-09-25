@@ -85,6 +85,7 @@ class _LoginViewState extends State<LoginView> {
               onPressed: () {
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil(registerRoute, (route) => false);
+                // Navigator.of(context).pushNamed(registerRoute);
               },
               child: const Text("Not Registered yet? Register here!"))
         ],
