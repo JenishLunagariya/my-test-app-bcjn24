@@ -5,6 +5,13 @@ import 'package:test_application/services/auth/firebase_auth_provider.dart';
 class AuthService extends AuthProvider {
   final AuthProvider provider;
   AuthService(this.provider);
+  factory AuthService.firebase() => AuthService(FirebaseAuthProvider());
+
+  @override
+  Future<void> initialize() async {
+    provider.initialize();
+  }
+
   @override
   Future<AuthUser> createUser(
       {required String email, required String password}) {
