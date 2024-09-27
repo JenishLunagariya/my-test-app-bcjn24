@@ -1,5 +1,6 @@
 {
   "cmake.sourceDirectory": "/Users/nirmal/Jenish/Programming/MyFlutter/test_application/linux/flutter",
   "java.compile.nullAnalysis.mode": "automatic",
-  "java.configuration.updateBuildConfiguration": "automatic"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "cmake.ignoreCMakeListsMissing": true
 }
