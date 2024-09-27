@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:test_application/firebase_options.dart';
-
 import 'auth_exceptions.dart';
 import 'auth_user.dart';
 import 'auth_provider.dart';
@@ -21,8 +20,10 @@ class FirebaseAuthProvider implements AuthProvider {
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       final user = currentUser;
       if (user != null) {
         return user;

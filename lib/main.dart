@@ -1,12 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:test_application/firebase_options.dart';
+// import 'package:test_application/firebase_options.dart';
+// import 'package:test_application/services/auth/auth_provider.dart';
+import 'package:test_application/services/auth/auth_service.dart';
 import 'package:test_application/views/login_view.dart';
 import 'package:test_application/views/notes_view.dart';
 import 'package:test_application/views/register_view.dart';
 import 'package:test_application/views/verify_email_view.dart';
-// import 'dart:developer' as devtools show log;
 
 import 'constants/routes.dart';
 
@@ -33,22 +32,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      ),
+      future: AuthService.firebase().initialize(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
-            final user = FirebaseAuth.instance.currentUser;
-            // if (user?.emailVerified ?? false) {
-            //   return const Text("Done...");
-            // } else {
-            //   // Navigator.of(context).push(MaterialPageRoute(
-            //   //     builder: (context) => const VerifyEmailView())); // push onto scaffold screen
-            //   return VerifyEmailView();
-            // }
+            final user = AuthService.firebase().currentUser;
             if (user != null) {
-              if (user.emailVerified) {
+              if (user.isEmailVerified) {
                 return const NotesView();
               } else {
                 return const VerifyEmailView();

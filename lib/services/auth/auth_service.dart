@@ -18,12 +18,14 @@ class AuthService extends AuthProvider {
   }
 
   @override
-  // TODO: implement currentUser
   AuthUser? get currentUser => provider.currentUser;
 
   @override
   Future<AuthUser> logIn({required String email, required String password}) =>
-      provider.logIn(email: email, password: password);
+      provider.logIn(
+        email: email,
+        password: password,
+      );
 
   @override
   Future<void> logOut() => provider.logOut();
