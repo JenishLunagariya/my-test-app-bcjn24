@@ -325,7 +325,7 @@ const createUserTable = '''
         ); 
         ''';
 const createNoteTable = '''
-        CREATE TABLE "note" (
+        CREATE TABLE IF NOT EXISTS "note"(
         "id"	INTEGER NOT NULL,
         "user_id"	INTEGER NOT NULL,
         "text"	TEXT,

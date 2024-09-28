@@ -14,7 +14,7 @@ void main() {
       expect(provider.logOut(),
           throwsA(const TypeMatcher<NotInitializedException>()));
     });
-    test("should be initialiazed", () async{
+    test("should be initialiazed", () async {
       await provider.initialize();
       expect(provider.isInitialized, true);
     });
@@ -34,14 +34,15 @@ void main() {
         email: "foo@bar.com",
         password: "whatever",
       );
-      expect(badEmailUser, throwsA(const TypeMatcher<UserNotFoundAuthException>()));
+      expect(badEmailUser,
+          throwsA(const TypeMatcher<UserNotFoundAuthException>()));
 
       final badPasswordUser = provider.createUser(
         email: "some@one.com",
         password: "12121212",
       );
-      expect(
-          badPasswordUser, throwsA(const TypeMatcher<WrongPasswordAuthException>()));
+      expect(badPasswordUser,
+          throwsA(const TypeMatcher<WrongPasswordAuthException>()));
 
       final user = await provider.createUser(
         email: "foo",
@@ -97,7 +98,10 @@ class MockAuthProvider implements AuthProvider {
     if (!isInitialized) throw NotInitializedException();
     if (email == 'foo@bar.com') throw UserNotFoundAuthException();
     if (password == '12121212') throw WrongPasswordAuthException();
-    const user = AuthUser(isEmailVerified: false);
+    const user = AuthUser(
+      isEmailVerified: false,
+      email: 'jen@zzz.com',
+    );
     _user = user;
     return Future.value(user);
   }
@@ -115,7 +119,10 @@ class MockAuthProvider implements AuthProvider {
     if (!isInitialized) throw NotInitializedException();
     final user = _user;
     if (user == null) throw UserNotFoundAuthException();
-    const newUser = AuthUser(isEmailVerified: true);
+    const newUser = AuthUser(
+      isEmailVerified: true,
+      email: 'jen@zzz.com',
+    );
     _user = newUser;
   }
 }
