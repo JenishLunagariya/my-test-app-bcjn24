@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show BuildContext, ModalRoute;
 
-extension GetArguments on BuildContext {
+extension GetArgument on BuildContext {
   T? getArgument<T>() {
     final modalRoute = ModalRoute.of(this);
     if (modalRoute != null) {
